@@ -6783,7 +6783,7 @@ Function UpdateEvents()
 			Case "tunnel2"
 				;[Block]
 				If PlayerRoom = e\room Then
-					If Curr173\Idle > 1 Then
+					If Curr173\Idle > 1 Lor EntityDistance(Collider, Curr173\Collider) < 8 Then
 						RemoveEvent(e)
 						Exit
 					Else		

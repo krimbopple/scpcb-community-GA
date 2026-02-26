@@ -7785,6 +7785,7 @@ Function DrawMenu()
 					
 					Color 255,255,255
 					If DrawTick(x + 270 * MenuScale, y, CurrFrameLimit > 0.0) Then
+						If CurrFrameLimit = 0 Then CurrFrameLimit = (60-19)/100.0
 						;CurrFrameLimit# = (SlideBar(x + 150*MenuScale, y+30*MenuScale, 100*MenuScale, CurrFrameLimit#*50.0, 1)/50.0)
 						;CurrFrameLimit = Max(CurrFrameLimit, 0.1)
 						;Framelimit% = CurrFrameLimit#*100.0

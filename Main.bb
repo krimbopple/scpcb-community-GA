@@ -4630,12 +4630,16 @@ Function MouseLook()
 		;RotateEntity Collider, EntityPitch(Collider), EntityYaw(Collider), 0
 		;moveentity player, side, up, 0	
 		; -- Update the smoothing que To smooth the movement of the mouse.
-		mouse_x_speed_1# = CurveValue(MouseXSpeed() * (MouseSens + 0.6) , mouse_x_speed_1, (6.0 / (MouseSens + 1.0))*MouseSmooth) 
+		Local smoothFactor# = (6.0 / (MouseSens + 1.0)) * MouseSmooth
+		If smoothFactor < 0.1 Then smoothFactor = 0.1
+
+		mouse_x_speed_1# = CurveValue(MouseXSpeed() * (MouseSens + 0.6) , mouse_x_speed_1, smoothFactor) 
 		If IsNaN(mouse_x_speed_1) Then mouse_x_speed_1 = 0
+
 		If InvertMouse Then
-			mouse_y_speed_1# = CurveValue(-MouseYSpeed() * (MouseSens + 0.6), mouse_y_speed_1, (6.0/(MouseSens+1.0))*MouseSmooth) 
+			mouse_y_speed_1# = CurveValue(-MouseYSpeed() * (MouseSens + 0.6), mouse_y_speed_1, smoothFactor) 
 		Else
-			mouse_y_speed_1# = CurveValue(MouseYSpeed () * (MouseSens + 0.6), mouse_y_speed_1, (6.0/(MouseSens+1.0))*MouseSmooth) 
+			mouse_y_speed_1# = CurveValue(MouseYSpeed() * (MouseSens + 0.6), mouse_y_speed_1, smoothFactor) 
 		EndIf
 		If IsNaN(mouse_y_speed_1) Then mouse_y_speed_1 = 0
 		

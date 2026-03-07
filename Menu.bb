@@ -2486,7 +2486,7 @@ Function DrawOptionsTooltip(x%,y%,width%,height%,option$,value#=0,ingame%=False)
 			R = 255
 			G = 255
 			B = 255
-			txt2 = Format(I_Loc\Option_HintDefault, "%", Str(Int(value*100)), "100")
+			txt2 = Format(I_Loc\Option_HintDefault, "%", Str(Int(value*100)), "40")
 		Case "controls"
 			txt = I_Loc\OptionTooltip_Binds
 			;[End Block]

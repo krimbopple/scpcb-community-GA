@@ -8619,9 +8619,13 @@ Function LoadEntities()
 	CatchErrors("LoadEntities")
 End Function
 
+Include "MemorySystem.bb"
+
 Function InitNewGame()
 	CatchErrors("Uncaught (InitNewGame)")
 	Local i%, de.Decals, d.Doors, it.Items, r.Rooms, sc.SecurityCams, e.Events
+
+	InitMemories()
 
 	DrawLoading(45)
 	
@@ -8927,6 +8931,8 @@ Function NullGame(playbuttonsfx%=True)
 		itt\found = False
 	Next
 	
+	InitMemories()
+
 	DropSpeed = 0
 	Shake = 0
 	CurrSpeed = 0

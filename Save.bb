@@ -128,6 +128,8 @@ Function SaveGame(file$)
 	Next
 	WriteInt f, RefinedItems
 	
+	SaveMemories(f)
+
 	WriteInt f, MapWidth
 	WriteInt f, MapHeight
 	For lvl = 0 To 0
@@ -609,6 +611,8 @@ Function LoadGame(file$)
 	Next
 	RefinedItems = ReadInt(f)
 	
+	LoadMemories(f)
+
 	MapWidth = ReadInt(f)
 	MapHeight = ReadInt(f)
 	Dim MapTemp%(MapWidth+1, MapHeight+1)
@@ -1450,6 +1454,8 @@ Function LoadGameQuick(file$)
 	Next
 	RefinedItems = ReadInt(f)
 	
+	LoadMemories(f)
+
 	MapWidth = ReadInt(f)
 	MapHeight = ReadInt(f)
 	DebugLog MapWidth
